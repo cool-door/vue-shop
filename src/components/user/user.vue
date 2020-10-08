@@ -476,7 +476,7 @@ export default {
         this.queryInfo = defaultQueryInfo
         this.getUserList()
       }).catch(() => {
-        this.$message.error('已取消删除用户操作！')
+        this.$message.info('已取消删除用户操作！')
       })
     }
   },

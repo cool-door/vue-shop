@@ -49,7 +49,7 @@ Vue.component('tree-table', TreeTable)
 // 将富文本编辑器，注册为全局可用的组件
 Vue.use(VueQuillEditor)
 
-Vue.filter('dateFormat', function(originVal) {
+Vue.filter('dateFormat', function (originVal) {
   const dt = new Date(originVal)
 
   const y = dt.getFullYear()
@@ -62,6 +62,23 @@ Vue.filter('dateFormat', function(originVal) {
 
   return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
 })
+
+// 注册全局消息确认框
+Vue.prototype.$confirmResult = async function (value) {
+  // 返回处理后的值
+  // 弹框提示用户是否要删除
+  const confirmResult = await this.$confirm(
+    '此操作将永久删除该文件, 是否继续?',
+    '提示',
+    {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning'
+    }
+  ).catch(err => err)
+  return confirmResult
+}
+
 new Vue({
   router,
   render: h => h(App)

@@ -77,12 +77,11 @@ export default {
         if (!valid);
         // 默认账号密码 admin 123456
         const { data: res } = await this.$http.post('login', this.form)
-        const token = res.data.token
-        if (res.meta.status !== 200 || !token) {
-          return this.$message.error('登录失败')
+        if (res.meta.status !== 200) {
+          return this.$message.error(res.meta.msg)
         }
         this.$message.success('登录成功')
-        sessionStorage.setItem('token', token)
+        sessionStorage.setItem('token', res.data.token)
         this.$router.push('/home')
       })
     }

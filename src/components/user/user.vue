@@ -36,12 +36,12 @@
         border
       >
         <el-table-column type="index"></el-table-column>
-        <el-table-column
+        <!-- <el-table-column
           prop="create_time"
           label="日期"
           :formatter="dateFormat"
         >
-        </el-table-column>
+        </el-table-column> -->
         <el-table-column
           prop="username"
           label="名称"

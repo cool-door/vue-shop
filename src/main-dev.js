@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 // 日期操作相关库
-import moment from 'moment'
+// import moment from 'moment'
 import './plugins/element.js'
 // 基础全局样式
 import './assets/css/base.css'
@@ -41,7 +41,7 @@ axios.interceptors.response.use(config => {
 
 // 挂载相关类库
 Vue.prototype.$http = axios
-Vue.prototype.$moment = moment
+// Vue.prototype.$moment = moment
 
 Vue.config.productionTip = false
 
